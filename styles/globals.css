@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body{
+    height: 100%;
+    font-size: 16px;
+    background-image: url(https://tse3-mm.cn.bing.net/th/id/OIP-C.uH_pqr0G2vN-QyZMQtvyoAHaHa?w=185&h=184&c=7&r=0&o=5&dpr=1.5&pid=1.7);
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
