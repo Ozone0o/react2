@@ -1,7 +1,7 @@
 import Button from "@/components/common/Button"
 import { MdRefresh } from "react-icons/md"
-import { PiLightningFill, PiStopBold } from "react-icons/pi"
-import { FiSend } from "react-icons/fi"
+import { PiStopBold } from "react-icons/pi"
+import { IoMdSend } from "react-icons/io";
 import TextareaAutoSize from "react-textarea-autosize"
 import { useRef, useState } from "react"
 import { v4 as uuidv4 } from "uuid"
@@ -9,6 +9,8 @@ import { Message } from "@/types/chat"
 import { useAppContext } from "@/components/appcontext"
 import { MessageRequestBody } from "@/types/chat"
 import { ActionType } from "@/reducers/appreducer"
+import { HiOutlineFaceSmile } from "react-icons/hi2";
+import { BsPaperclip } from "react-icons/bs";
 
 export default function ChatInput() {
     const [messageText, setMessageText] = useState("")
@@ -103,8 +105,8 @@ stopRef.current = false
     }
 
     return (
-        <div className='absolute bottom-0 inset-x-0 bg-gradient-to-b from-[rgba(255,255,255,0)] from-[12%] to-black/10 to-[54.73%] pt-10 '>
-            <div className='w-full max-w-4xl mx-auto flex flex-col items-center px-4 space-y-4'>
+        <div className='absolute bottom-5 inset-x-0  pt-10'>
+            <div className='w-full mx-auto flex flex-col items-center px-10 space-y-4'>
                 {messageList.length !== 0 &&
                     (streamingId !== "" ? (
                         <Button
@@ -129,12 +131,9 @@ stopRef.current = false
                             重新生成
                         </Button>
                     ))}
-                <div className='flex items-end w-full border border-black/20 bg-white rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.5)] py-4'>
-                    <div className='mx-3 mb-2.5 text-sky-500'>
-                        <PiLightningFill />
-                    </div>
+                <div className='flex items-center w-full bg-white rounded-lg border-2 border-[#004C9F] py-4'>
                     <TextareaAutoSize
-                        className='outline-none flex-1 max-h-64 mb-1.5 bg-transparent text-black resize-none border-0'
+                        className='outline-none flex-1 max-h-64 mb-1.5 bg-transparent text-black resize-none border-0 mx-4'
                         placeholder='输入一条消息...'
                         rows={1}
                         value={messageText}
@@ -143,12 +142,28 @@ stopRef.current = false
                         }}
                     />
                     <Button
-                        className='mx-3 !rounded-lg'
-                        icon={FiSend}
+                        className='mx-1 !rounded-lg'
+                        icon={HiOutlineFaceSmile}
                         disabled={
                             messageText.trim() === "" || streamingId !== ""
                         }
                         variant='primary'
+                    />
+                    <Button
+                        className='mx-1 !rounded-lg'
+                        icon={BsPaperclip}
+                        disabled={
+                            messageText.trim() === "" || streamingId !== ""
+                        }
+                        variant='primary'
+                    />
+                    <Button
+                        className='mx-3 !rounded-lg'
+                        icon={IoMdSend}
+                        disabled={
+                            messageText.trim() === "" || streamingId !== ""
+                        }
+                        variant='outline'
                         onClick={send}
                     />
                 </div>

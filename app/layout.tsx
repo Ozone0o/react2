@@ -1,10 +1,10 @@
 import "@/styles/globals.css"
-import "@/styles/markdown.css"
+
 import type { Metadata } from 'next'
 import AppContextProvider from '@/components/appcontext'
 
 export const metadata: Metadata = {
-  title: 'Chat BUPT',
+  title: 'SimuCustomer',
 }
 
 export default function RootLayout({

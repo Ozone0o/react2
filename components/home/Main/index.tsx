@@ -1,15 +1,15 @@
-import Menu from "./Menu"
 import ChatInput from "./ChatInput"
 import MessageList from "./MessageList"
+import Information from "./Information"
 
 export default function Main() {
     return (
-        <div className="flex-1 relative ">
-        <main className='overflow-y-auto  h-full w-full text-black'>
-            <Menu />
+        <nav className="flex-grow flex flex-col">
+        <main className='overflow-y-auto  border border-[#B4CAEE] flex-grow rounded-2xl m-2 relative'>
+            <Information/>
             <MessageList />
             <ChatInput />
         </main>
-        </div>
+        </nav>
     )
 }
